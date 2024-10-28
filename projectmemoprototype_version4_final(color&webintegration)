@@ -4,13 +4,13 @@ from spotipy.oauth2 import SpotifyOAuth
 import webbrowser
 from PyQt5 import QtWidgets, QtGui, QtCore
 
-# Credenciais do Spotify
+# credenciais spotify for dev
 CLIENT_ID = '57202c8ae7024c3aac399499bfb026b1'
 CLIENT_SECRET = '4c543f7bde714b68a681d03ebea209ad'
 REDIRECT_URI = 'https://github.com/adajamile/MeMO.git'
 scope = 'playlist-read-private user-modify-playback-state user-read-playback-state'
 
-# Autenticação com OAuth
+# autenticação do oauth
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
                                                client_secret=CLIENT_SECRET,
                                                redirect_uri=REDIRECT_URI,
@@ -25,36 +25,36 @@ class SpotifyYouTubeApp(QtWidgets.QWidget):
         self.setWindowTitle('Projeto MeMO')
         self.setGeometry(100, 100, 400, 200)
 
-        # Definindo a cor de fundo e a imagem
+        # cor de fundo e a imagem
         self.setStyleSheet("background-color: #7c44bd;")
         self.setWindowIcon(QtGui.QIcon(r'C:\Users\adaja\Desktop\project memo\memo logo.png'))  # Ícone do aplicativo, coloque a imagem no diretório do script
 
         layout = QtWidgets.QVBoxLayout()
 
-        # Estilo da fonte do título
+        # estilo da fonte do título
         font = QtGui.QFont("Roboto", 20, QtGui.QFont.Bold)
 
         self.label = QtWidgets.QLabel("Insira o link da playlist do Spotify:")
         self.label.setFont(font)
-        self.label.setStyleSheet("color: #ffffff;")  # Cor do texto
+        self.label.setStyleSheet("color: #ffffff;")  # cor do texto
         layout.addWidget(self.label)
 
-        # Campo de entrada de texto
+        # campo de entrada de texto
         self.playlist_input = QtWidgets.QLineEdit(self)
         self.playlist_input.setStyleSheet("background-color: #e2d3eb; color: white; padding: 5px; border-radius: 5px;")
         layout.addWidget(self.playlist_input)
 
-        # Botão de reprodução com fonte personalizada
+        # botão de reprodução com fonte personalizada
         self.play_button = QtWidgets.QPushButton("Reproduzir Playlist", self)
-        play_button_font = QtGui.QFont("Arial", 14, QtGui.QFont.Bold)  # Fonte e tamanho da fonte do botão
+        play_button_font = QtGui.QFont("Arial", 14, QtGui.QFont.Bold)  # fonte e tamanho da fonte do botão
         self.play_button.setFont(play_button_font)
         self.play_button.setStyleSheet("background-color: #cca6e0; color: white; padding: 8px; border-radius: 5px;")
         self.play_button.clicked.connect(self.play_playlist)
         layout.addWidget(self.play_button)
 
-        # Botão de sair com fonte personalizada
+        # botão de sair com fonte personalizada
         self.exit_button = QtWidgets.QPushButton("Sair", self)
-        exit_button_font = QtGui.QFont("Arial", 14, QtGui.QFont.Bold)  # Fonte e tamanho da fonte do botão
+        exit_button_font = QtGui.QFont("Arial", 14, QtGui.QFont.Bold)  # fonte e tamanho da fonte do botão
         self.exit_button.setFont(exit_button_font)
         self.exit_button.setStyleSheet("background-color: #77afd1; color: white; padding: 8px; border-radius: 5px;")
         self.exit_button.clicked.connect(self.close)
