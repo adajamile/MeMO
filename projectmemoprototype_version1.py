@@ -8,17 +8,14 @@ class AudioMixerApp:
         self.root.title("MeMO Prototype")
         self.root.geometry("400x200")
 
-        # URL fixa do áudio do YouTube
         self.youtube_url = "https://youtu.be/A2_YmvHxVmA?si=zCLZCPg-NNowZ0cM"
 
-        # exibir URL do YouTube
         self.youtube_label = tk.Label(root, text="YouTube Audio URL:")
         self.youtube_label.pack()
         self.youtube_entry = tk.Entry(root, width=50)
-        self.youtube_entry.insert(0, self.youtube_url)  # Preencher com a URL fixa
+        self.youtube_entry.insert(0, self.youtube_url) 
         self.youtube_entry.pack()
 
-        # entrada da URL da Playlist do Spotify
         self.spotify_label = tk.Label(root, text="Spotify Playlist URL:")
         self.spotify_label.pack()
         self.spotify_entry = tk.Entry(root, width=50)
